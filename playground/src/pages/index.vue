@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ZoomImage, { defineZoomOptions } from '@bryce-loskie/mz'
+import ZoomImage, { defineZoomOptions } from 'mz/index'
 import { useDark } from '@vueuse/core'
 import { imageSrcList } from '@/constants/images'
 

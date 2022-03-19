@@ -61,10 +61,7 @@ importers:
       medium-zoom: 1.0.6
 
   playground:
-    specifiers:
-      '@bryce-loskie/mz': ^0.1.0
-    dependencies:
-      '@bryce-loskie/mz': link:../packages/mz
+    specifiers: {}
 
 packages:
 

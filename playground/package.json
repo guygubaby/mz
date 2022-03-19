@@ -10,8 +10,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@bryce-loskie/mz": "^0.1.0"
-  }
+  "license": "MIT"
 }
