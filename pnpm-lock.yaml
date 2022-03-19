@@ -54,7 +54,7 @@ importers:
       vue: 3.2.31
       vue-router: 4.0.13_vue@3.2.31
 
-  packages/core:
+  packages/mz:
     specifiers:
       medium-zoom: ^1.0.6
     devDependencies:
