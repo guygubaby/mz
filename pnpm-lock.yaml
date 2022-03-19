@@ -62,7 +62,7 @@ importers:
 
   playground:
     specifiers:
-      '@bryce-loskie/mz': workspace:^0.1.0
+      '@bryce-loskie/mz': ^0.1.0
     dependencies:
       '@bryce-loskie/mz': link:../packages/mz
 
