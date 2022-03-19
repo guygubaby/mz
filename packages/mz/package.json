@@ -1,7 +1,7 @@
 {
   "name": "@bryce-loskie/mz",
-  "version": "0.1.0",
-  "description": "An zoom image component for vue3 using medium-zoom",
+  "version": "0.1.1",
+  "description": "A zoom image component for vue3 using medium-zoom",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -23,7 +23,10 @@
     "dev": "pnpm build -- --watch",
     "build": "tsup"
   },
-  "keywords": ["medium-zoom", "image viewer"],
+  "keywords": [
+    "medium-zoom",
+    "image viewer"
+  ],
   "author": "guygubaby@gmail.com",
   "license": "MIT",
   "devDependencies": {
