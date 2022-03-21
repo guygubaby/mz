@@ -19,7 +19,7 @@ const options = defineZoomOptions({
 
     <ul class="flex gap-2 flex-wrap">
       <li v-for="img in imageSrcList" :key="img">
-        <ZoomImage :preview="false" alt="foo" :src="img" :zoom-options="options" class="w-40 h-auto" />
+        <ZoomImage alt="foo" :src="img" :zoom-options="options" class="w-40 h-auto" />
       </li>
     </ul>
   </div>
