@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/@bryce-loskie/mz?color=a1b858&label=)](https://www.npmjs.com/package/@bryce-loskie/mz)
 
-## An zoom image component for vue3 using medium-zoom
+## A zoom image component for vue3 using medium-zoom
 
 ## Get Started
 

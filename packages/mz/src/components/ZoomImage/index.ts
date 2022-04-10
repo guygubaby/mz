@@ -82,8 +82,6 @@ export default defineComponent({
     const imageSrc = ref('')
 
     watchEffect(() => {
-      if (!props.preview) return
-
       if (props.src && imageRef.value) {
         disposeZoom()
 
@@ -91,7 +89,9 @@ export default defineComponent({
 
         loadImage(props.src).then((success) => {
           if (success) {
-            zoomInstance = mediumZoom(imageRef.value, props.zoomOptions)
+            if (props.preview)
+              zoomInstance = mediumZoom(imageRef.value, props.zoomOptions)
+
             imageSrc.value = props.src
           }
           else { imageSrc.value = props.fallback || DEFAULT_FALLBACK }
