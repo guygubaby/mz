@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import ZoomImage, { defineZoomOptions } from '@bryce-loskie/mz'
-import { useDark } from '@vueuse/core'
 import { imageSrcList } from '@/constants/images'
+import { isDark } from '@/logic/dark'
 
-const isDark = useDark()
-
-const options = defineZoomOptions({
+const options = computed(()=>defineZoomOptions({
   background: isDark.value ? '#000' : '#fff',
   margin: 24,
-})
+}))
 </script>
 
 <template>

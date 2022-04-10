@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import { PropType, watch } from 'vue'
 import { computed, defineComponent, h, onBeforeUnmount, ref } from 'vue'
 import type { Zoom, ZoomOptions } from 'medium-zoom'
 import mediumZoom from 'medium-zoom'
@@ -89,6 +89,11 @@ export default defineComponent({
       if (!props.placeholder) return
       imageSrc.value = props.placeholder
     }
+
+    watch(()=>props.zoomOptions, (options)=>{
+      if(!zoomInstance || !options) return
+      zoomInstance.update(options)
+    })
 
     debouncedWatch(() => props.src, async(_, _src, onCleanup) => {
       onCleanup(disposeZoom)

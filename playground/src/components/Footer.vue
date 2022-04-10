@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'
-
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+import { isDark, toggleDark } from '@/logic/dark'
 </script>
 
 <template>
