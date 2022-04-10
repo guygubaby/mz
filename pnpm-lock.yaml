@@ -57,11 +57,14 @@ importers:
   packages/mz:
     specifiers:
       medium-zoom: ^1.0.6
-    devDependencies:
+    dependencies:
       medium-zoom: 1.0.6
 
   playground:
-    specifiers: {}
+    specifiers:
+      '@bryce-loskie/mz': workspace:^0.1.1
+    dependencies:
+      '@bryce-loskie/mz': link:../packages/mz
 
 packages:
 
@@ -4249,7 +4252,7 @@ packages:
 
   /medium-zoom/1.0.6:
     resolution: {integrity: sha512-UdiUWfvz9fZMg1pzf4dcuqA0W079o0mpqbTnOz5ip4VGYX96QjmbM+OgOU/0uOzAytxC0Ny4z+VcYQnhdifimg==}
-    dev: true
+    dev: false
 
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}

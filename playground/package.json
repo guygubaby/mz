@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@bryce-loskie/mz": "workspace:^*"
+  }
 }

@@ -9,7 +9,7 @@ const options: Options = {
   entryPoints: [
     'src/index.ts',
   ],
-  external: ['vue'],
+  external: ['vue', 'medium-zoom'],
 }
 
 export default options
