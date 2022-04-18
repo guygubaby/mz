@@ -1,6 +1,6 @@
 {
   "name": "@bryce-loskie/mz",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A zoom image component for vue3 using medium-zoom",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
