@@ -23,6 +23,8 @@ const pruneFalsy = (obj: Record<PropertyKey, any>) => {
   }, {} as Record<PropertyKey, any>)
 }
 
+type Fn = () => void
+
 export default defineComponent({
   props: {
     src: {
@@ -58,7 +60,15 @@ export default defineComponent({
       default: '',
     },
   },
-  setup(props) {
+  emits: [
+    'open',
+    'opened',
+    'close',
+    'closed',
+    'detach',
+    'update',
+  ],
+  setup(props, { emit }) {
     const style = computed(() => {
       const { height, width } = props
       const res = pruneFalsy({
@@ -72,10 +82,16 @@ export default defineComponent({
 
     let zoomInstance: Zoom | null = null
 
+    const sideEffects: Fn[] = []
+
     const disposeZoom = () => {
       if (!zoomInstance) return
       zoomInstance.detach()
       zoomInstance = null
+
+      for (const fn of sideEffects)
+        fn()
+      sideEffects.length = 0
     }
 
     const imageSrc = ref('')
@@ -113,6 +129,54 @@ export default defineComponent({
         if (!preview) return
 
         zoomInstance = mediumZoom(imageRef.value, props.zoomOptions)
+
+        const onOpenFn = (event: Event) => {
+          emit('open', event)
+        }
+        zoomInstance.on('open', onOpenFn)
+        sideEffects.push(() => {
+          zoomInstance?.off('open', onOpenFn)
+        })
+
+        const onOpenedFn = (event: Event) => {
+          emit('opened', event)
+        }
+        zoomInstance.on('opened', onOpenedFn)
+        sideEffects.push(() => {
+          zoomInstance?.off('opened', onOpenedFn)
+        })
+
+        const onCloseFn = () => {
+          emit('close')
+        }
+        zoomInstance.on('close', onCloseFn)
+        sideEffects.push(() => {
+          zoomInstance?.off('close', onCloseFn)
+        })
+
+        const onClosedFn = () => {
+          emit('closed')
+        }
+        zoomInstance.on('closed', onClosedFn)
+        sideEffects.push(() => {
+          zoomInstance?.off('closed', onClosedFn)
+        })
+
+        const onDetachFn = () => {
+          emit('detach')
+        }
+        zoomInstance.on('detach', onDetachFn)
+        sideEffects.push(() => {
+          zoomInstance?.off('detach', onDetachFn)
+        })
+
+        const onUpdateFn = () => {
+          emit('update')
+        }
+        zoomInstance.on('update', onUpdateFn)
+        sideEffects.push(() => {
+          zoomInstance?.off('update', onUpdateFn)
+        })
       }, {
         immediate: true,
         flush: 'post',
