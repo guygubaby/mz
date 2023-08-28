@@ -10,6 +10,12 @@
         <span>preview: {{ i%2===0 }}</span>
       </li>
     </ul>
+
+    <ZoomImage ref="zoomImageRef" alt="foo" :src="imageSrcList[1]" :zoom-options="options" class="w-40 h-auto" />
+
+    <button @click="handleOpenManually">
+      open
+    </button>
   </div>
 </template>
 
@@ -29,6 +35,12 @@ const handleOnOpen = (e: Event) => {
 
 const handleOnOpened = (e: Event) => {
   console.log('opened', e)
+}
+
+const zoomImageRef = ref()
+
+const handleOpenManually = () => {
+  zoomImageRef.value?.open()
 }
 </script>
 
